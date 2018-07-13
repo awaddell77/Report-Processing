@@ -1,4 +1,5 @@
 import csv
+from w_csv import *
 class C_sort(object):#for processing CSVs
     def __init__(self, fname, other = 0):
         self.fname = fname
@@ -19,12 +20,31 @@ class C_sort(object):#for processing CSVs
         return self.row_grab(n)
     def rows(self):#enumerate is used in order to ensure that each row has its row number in the first position or "cell"
         return enumerate(self.contents)
+    def get_header(self, header_row = 0):
+        return self.contents[header_row]
     def add_column(self, col, n ):# col is the list, n is the location of the new column
         pass
 
         '''for i in self.contents:
             for i_2 in range(0, len(self.contents[i])):
                 if i_2 == n:'''
+    def fill_column(self, column_number, value, start, end, ignore_empty=True):
+        if end > len(self.contents): raise IndexError("Row number is outside of range.")
+        for i in range(start, end):
+            if ignore_empty and not self.row_is_empty(i): self.contents[i][column_number] = value
+            if not ignore_empty: self.contents[i][column_number] = value
+    def row_is_empty(self, row_number):
+        #'empty' in this context means filled with empty spaces
+        row = self.row_grab(row_number)[:]
+        row.sort(reverse=True)
+        if row[0]: return False
+        return True
+    def export(self, fname):
+        w_csv(self.contents, fname)
+
+
+            
+
 
         
     
@@ -37,8 +57,8 @@ class C_sort(object):#for processing CSVs
             columns.append(new_col)
         return columns
     def row_grab(self, n):
-        h = self.contents
-        return h[n]
+        #h = self.contents
+        return self.contents[n]
                     
 
 
