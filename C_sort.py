@@ -24,6 +24,15 @@ class C_sort(object):#for processing CSVs
         return self.contents[header_row]
     def add_column(self, col, n ):# col is the list, n is the location of the new column
         pass
+    def dict_pair(self, col1, col2):
+        #col1 becomes the key, col2 the value
+        keys = self.col_grab(col1)
+        vals = self.col_grab(col2)
+        if len(keys) != len(vals):
+            print("The columns are unequal in length")
+            return {}
+        #the second element in the value list is the position
+        return {keys[i]:[vals[i], i] for i in range(0, len(keys))}
 
         '''for i in self.contents:
             for i_2 in range(0, len(self.contents[i])):
