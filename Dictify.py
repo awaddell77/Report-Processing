@@ -17,3 +17,9 @@ class Dictify:
                 d[crit[i_2]] = items[i][i_2]
             results.append(d)
         return results
+    def just_header(self):
+        item = C_sort(self.fname)
+        items = item.contents
+        crit = item.contents[0]
+        if self.strip_headers: crit = [i.strip(" ") for i in crit] 
+        return crit

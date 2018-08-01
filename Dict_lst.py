@@ -11,7 +11,7 @@ class Dict_lst:
 			if data and not isinstance(element, dict): raise TypeError("Must be dict")
 			else: self.data.append(element)
 	def __repr__(self):
-		return self.data
+		return repr(self.data)
 	def __len__(self):
 		return len(self.data)
 	def _dc(self):
@@ -53,6 +53,15 @@ class Dict_lst:
 
 	def add_lst(self, lst):
 		self.data += lst
+	def pull_all(self, key):
+		results = []
+		for d in self.data:
+			if key in d: results.append(d[key])
+			else: results.append('')
+		return results
+
+
+
 	def get_index(self, index):
 		return self.data[index]
 	def sort(self, key):
@@ -78,6 +87,10 @@ class Dict_lst:
 			if self.data[mid][key] < val: left = mid + 1
 			elif self.data[mid][key] > val: right = mid - 1
 			else: return mid
+		return
+	def search(self, key, val):
+		for i in range(0, len(self.data)):
+			if self.data[i][key] == val: return i
 		return
 
 
