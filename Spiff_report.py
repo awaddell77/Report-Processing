@@ -33,6 +33,7 @@ class Spiff_report:
 	def export_master(self, fname):
 		self.export(self.m_data.data, None, fname)
 	def export_matches(self, fname):
+		self.s_data_crits = list(self.s_data[0].keys())
 		self.export(self.matched.data, self.s_data_crits, fname)
 	def sample_unmatched(self, level = .05):
 		if len(self.m_data) == 0: return
