@@ -43,6 +43,9 @@ class Dict_lst:
 
 	def pop_index(self, index):
 		return self.data.pop(index)
+	def modify_index(self, index, key, val):
+		self.data[index][key] = val
+
 	def del_index(self, index):
 		del self.data[index]
 	def transform_index(self, index, key, func):
