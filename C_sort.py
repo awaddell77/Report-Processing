@@ -42,6 +42,16 @@ class C_sort(object):#for processing CSVs
         for i in range(start, end):
             if ignore_empty and not self.row_is_empty(i): self.contents[i][column_number] = value
             if not ignore_empty: self.contents[i][column_number] = value
+
+    def ins_column(self, column_name, value,position, header_pos=0 ):
+        
+        self.contents[header_pos].insert(position,column_name)
+        for i in range(0, header_pos):
+            self.contents[i].insert(position, value)
+        for i in range(header_pos+1, len(self.contents)):
+            self.contents[i].insert(position, value)
+            
+
     def row_is_empty(self, row_number):
         #'empty' in this context means filled with empty spaces
         row = self.row_grab(row_number)[:]
