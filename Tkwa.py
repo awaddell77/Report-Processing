@@ -6,9 +6,12 @@ class Tkwa:
 		self.fname = fname
 		self.data = C_sort(self.fname)
 		self.fills = []
+		self.ins_flag = True
+		self.ins_col = 1
 
 	def process(self, header_start=0):
 		header = self.data.get_header(header_start)
+		#if self.ins_flag: header.insert(self.ins_col, ' ')
 		target_index = ''
 		targ_col = 'Product........................'
 		for i in range(0, len(header)):
@@ -16,6 +19,11 @@ class Tkwa:
 		if not target_index: raise RuntimeError("Could not find Product column")
 		col = self.data.col_grab(target_index)
 		next_start = header_start+1
+		col_num = 0
+		if self.ins_flag: 
+			self.data.ins_column('Buy Line', '', self.ins_col)
+			col_num = self.ins_col
+
 		for i in range(0, len(col)):
 			#reads through cells
 			if "Total for" in col[i]:
@@ -24,7 +32,7 @@ class Tkwa:
 				self.fills.append([name, next_start, i-1])
 				next_start = i + 2
 		for sects in self.fills:
-			self.data.fill_column(0, sects[0], sects[1], sects[2])
+			self.data.fill_column(col_num, sects[0], sects[1], sects[2])
 	def export(self, fname="TKWA Report.csv"):
 		w_csv(self.data.contents, fname)
 
