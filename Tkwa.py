@@ -31,8 +31,7 @@ class Tkwa:
 				name = self.comp_name_grab(col[i])
 				self.fills.append([name, next_start, i-1])
 				next_start = i + 2
-		for sects in self.fills:
-			self.data.fill_column(col_num, sects[0], sects[1], sects[2])
+		for sects in self.fills: self.data.fill_column(col_num, sects[0], sects[1], sects[2])
 	def export(self, fname="TKWA Report.csv"):
 		w_csv(self.data.contents, fname)
 

@@ -2,3 +2,4 @@
 *.csv
 *.pyc
 *.xlsx
+geckodriver.log

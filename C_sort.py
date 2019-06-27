@@ -40,6 +40,7 @@ class C_sort(object):#for processing CSVs
     def fill_column(self, column_number, value, start, end, ignore_empty=True):
         if end > len(self.contents): raise IndexError("Row number is outside of range.")
         for i in range(start, end):
+            #there does not appear to be a distinction between empy and non-empty rows currently
             if ignore_empty and not self.row_is_empty(i): self.contents[i][column_number] = value
             if not ignore_empty: self.contents[i][column_number] = value
 
