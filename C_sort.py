@@ -61,6 +61,12 @@ class C_sort(object):#for processing CSVs
         return True
     def export(self, fname):
         w_csv(self.contents, fname)
+    def export_column_as_row(self, column_number, fname = 'columnexport.csv'):
+        #exports column csv with data as single comma delimited line
+        t_data = []
+        t_data.append(self.col_grab(column_number))
+        w_csv(t_data, fname)
+
 
 
             
@@ -72,8 +78,12 @@ class C_sort(object):#for processing CSVs
         h = self.contents
         columns = []
         for i in range(0, len(h)):
+
             new_row = h[i]
-            new_col = new_row[n]
+            #print(new_row)
+            #NOTE: empty columns should be given a space during import via r_csv
+            if not new_row: new_col = " "
+            else: new_col = new_row[n]
             columns.append(new_col)
         return columns
     def row_grab(self, n):

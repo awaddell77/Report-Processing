@@ -3,3 +3,6 @@
 *.pyc
 *.xlsx
 geckodriver.log
+super_test.txt
+texttest.txt
+*.txt
