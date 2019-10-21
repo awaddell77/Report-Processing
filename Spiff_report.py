@@ -6,13 +6,26 @@ from w_csv import *
 from S_format import *
 import math, random
 class Spiff_report:
-	def __init__(self, fname_master, fname_sales):
+	def __init__(self, fname_master='', fname_sales=''):
 		self.fname_master = fname_master
 		self.fname_sales = fname_sales
+		if fname_master and fname_sales:
+				self.m_data = Dict_lst(dictionarify(fname_master))
+				self.s_data = Dictify(fname_sales).main()
+				self.s_data_crits = Dictify(fname_sales).just_header()
+				self.matched = Dict_lst()
+		else:
+				self.m_data = ''
+				self.s_data = ''
+				self.s_data_crits = ''
+				self.matched = ''
+	def import_data(self):
+		#reimports data, useful if it wasn't instantiated with file names
 		self.m_data = Dict_lst(dictionarify(fname_master))
 		self.s_data = Dictify(fname_sales).main()
 		self.s_data_crits = Dictify(fname_sales).just_header()
 		self.matched = Dict_lst()
+
 
 	def clean(self):
 		self.cust_clean()

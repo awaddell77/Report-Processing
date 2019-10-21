@@ -37,13 +37,17 @@ def insert_delim(t_data,locs, header_line=0, delim = '\t'):
 def export(t_data,fname = 'new_rep.txt'):
 	text_wc(t_data, fname,1)
 
-
-h = import_text('super_test.txt',4)
+def main(fname, header_line, locs=[99,111,129, 147,162]):
+	t_data = import_text('super_test.txt',4)
+	#defaults to product sales summary columns when locs is blank
+	t_data = insert_delim(t_data, locs, header_line)
+	text_wc(t_data, 'super_test.csv')
+#h = import_text('super_test.txt',4)
 
 #locs = space_locate(h, 0, 0)
 #subtract two if using text editor to identify columns
 #subtract three if using two chars
-#locs = [99,113,131, 149,164]
+
 locs = [99,111,129, 147,162]
 #h = insert_delim(h, locs)
 h = insert_delim(h, locs, 4)
