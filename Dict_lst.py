@@ -5,11 +5,18 @@ from C_sort import *
 class Dict_lst:
 	def __init__(self, data= []):
 		self.data = []
+		self.header = set()
 		for element in data:
 			#print(element)
 			#print(type(element))
 			if data and not isinstance(element, dict): raise TypeError("Must be dict")
-			else: self.data.append(element)
+			else: 
+				self.data.append(element)
+				crits = list(element.keys())
+				for column in crits: 
+					#MOVE THE BELOW LOGIC INTO DICTIFY OR DICTIONARIFY
+					#if column in self.header: raise Duplicate_header("There is more than 1 \"{0}\" column".format(column))
+					self.header.add(column.strip(" "))
 	def __repr__(self):
 		return repr(self.data)
 	def __len__(self):
@@ -62,6 +69,11 @@ class Dict_lst:
 			if key in d: results.append(d[key])
 			else: results.append('')
 		return results
+	def add_crit(self, crit, value= ''):
+		for i in range(0, len(self.data)):
+			self.data[i][crit] = value
+
+
 
 
 
@@ -95,5 +107,11 @@ class Dict_lst:
 		for i in range(0, len(self.data)):
 			if self.data[i][key] == val: return i
 		return
+	def export(self, fname):
+		#needs an export method
+		#doesn't violate immutability (the entire purpose of this object)
+		pass
 
 
+class Duplicate_header(Exception):
+	pass

@@ -5,7 +5,7 @@ from text_l import *
 from Spiff_report  import *
 import getpass
 from dictionarify import *
-
+from Mti_spiff import *
 
 class Spiff_match_app:
 	def __init__(self):
@@ -27,7 +27,7 @@ class Spiff_match_app:
 		#preview
 		self.btsub3 = Button(window, text="Select Product File", command = lambda : self.get_file(False))
 		self.lstbox = Listbox(window)
-		self.opts = ['MTI', 'Delta', 'Jason', 'Fleurco']
+		self.opts = ['MTI', 'Delta', 'Jason', 'Fleurco'] #more to be added
 		
 		for opt in self.opts: self.lstbox.insert(END, opt)
 
@@ -45,7 +45,7 @@ class Spiff_match_app:
 		self.dir_n = ''
 		self.lst = []
 
-		#self.creds = text_l('C:\\Users\\Owner\\Documents\\Important\\catcred.txt')
+		
 		window.mainloop() 
 	def get_text(self):
 		StringVar = self.ent_field.get('1.0', 'end')
@@ -59,7 +59,7 @@ class Spiff_match_app:
 		spiff_opt = self.lstbox.get(self.lstbox.curselection()[0])
 		print(spiff_opt)
 		if spiff_opt == 'MTI':
-			from Mti_spiff import *
+			#from Mti_spiff import *
 			m_inst = Mti_spiff(self.fname_master, self.fname_spiffs)
 
 
