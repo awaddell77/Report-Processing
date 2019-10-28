@@ -32,8 +32,9 @@ class Pcp_spiff(Spiff_report):
 				continue
 			spiff = self.m_data.get_index(loc)['Spiff Amount']
 			temp['Spiff Match'] = spiff
-
+'''
 m_inst = Pcp_spiff('PCP', "pcpeclipse2019.csv", "pcpmaster2019.csv" )
 m_inst.clean()
 m_inst.match()
 m_inst.export_matches('asdfsad')
+'''

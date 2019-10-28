@@ -74,7 +74,7 @@ class Spiff_report:
 		return self._matchfilenameb(fname,True)
 
 
-	def export_matches(self, fname):
+	def export_matches(self, fname=''):
 		#When exporting matches the program will also export the master file
 		#the master file should contain a new column listing all of the extracted/transformed skus/cat#s/etc
 		#that the eclipse file matched against. Since the eclipse file will also have a new column containing 
@@ -93,6 +93,10 @@ class Spiff_report:
 		for i in data:
 			res.append(S_format(i).d_sort(crit))
 		w_csv(res, fname)
+	def main(self):
+		self.clean()
+		self.match()
+		self.export_matches()
 
 def spiff_session_id():
 	temp = datetime.datetime.now()
