@@ -106,7 +106,8 @@ class Dict_lst:
 	def search(self, key, val):
 		for i in range(0, len(self.data)):
 			if self.data[i][key] == val: return i
-		return
+
+		return -1
 	def export(self, fname):
 		#needs an export method
 		#doesn't violate immutability (the entire purpose of this object)

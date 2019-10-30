@@ -27,7 +27,7 @@ class Pcp_spiff(Spiff_report):
 			temp = self.e_data.get_index(i)
 			catnum = temp["CatMatch"]
 			loc = self.m_data.search('CatMatchM', catnum)
-			if not loc:
+			if loc < 0:
 				temp["Spiff Match"] = 'N/A'
 				continue
 			spiff = self.m_data.get_index(loc)['Spiff Amount']
