@@ -12,6 +12,10 @@ class C_sort(object):#for processing CSVs
         self.other = other#will be used later for different file formats
     #def contents(self):
         #return r_csv(self.fname)
+    def __len__(self):
+        return len(self.contents)
+    def __getitem__(self, index):
+        return self.contents[index]
     def set_delim(self, x):
         self.delimeter = x
     def column(self, n):
