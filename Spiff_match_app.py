@@ -34,7 +34,7 @@ class Spiff_match_app:
 		self.btsub3 = Button(window, text="Select Eclipse File", command = lambda : self.get_file(False))
 		#self.lstbox = Listbox(window)
 		#self.opts = ['MTI', 'Delta', 'Jason', 'Fleurco'] #more to be added
-		self.spiff_select = ttk.Combobox(window, values = ['MTI', 'Delta', 'Jason', 'Fleurco', 'PCP', 'QMDRAIN'])
+		self.spiff_select = ttk.Combobox(window, values = ['MTI', 'Delta', 'Jason', 'Fleurco', 'PCP', 'QMDRAIN', 'Crosswater/Ammara', 'Ameste', 'Barclay', 'MTNPLBG'])
 		self.auto_custom = ttk.Combobox(window, values = ['Auto', 'Custom (Select Master file yourself)'])
 		self.auto_custom.bind("<<ComboboxSelected>>", self.refresh_cust)
 		
@@ -65,7 +65,7 @@ class Spiff_match_app:
 		#StringVar = self.spiff_select.get()
 		spiff_opt = self.spiff_select.get()
 		if self.auto_custom.get() == 'Auto': self.fname_master = self.master_locs[spiff_opt]
-		report_inst = spiff_match_creator(spiff_opt, self.fname_eclipse, self.fname_master)
+		report_inst = spiff_match_creator_b(spiff_opt, self.fname_eclipse, self.fname_master)
 
 		print(self.fname_eclipse)
 		print(self.fname_master)
@@ -91,6 +91,7 @@ class Spiff_match_app:
 		return self.lst
 	def get_file(self, master = True):
 		fname1 = askopenfilename()
+		#will have to change for txt eclipse files
 		if '.csv' not in fname1.split('/')[len(fname1.split('/'))-1]:
 			showerror("File Type Error", "Can only process csv files")
 			return
