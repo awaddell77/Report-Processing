@@ -27,7 +27,7 @@ class Spiff_match_app:
 		self.lbl4 = Label(window, textvariable = self.fname_master, padx = 10)
 		#self.ent_field = Text(window, height = 1, width = 10)
 		#function name only, no parentheses at the end
-		self.btsub = Button(window, text="Click to create match file", command = self.get_text) 
+		self.btsub = Button(window, text="Click to create match file", command = self.get_text, relief = 'solid', pady=5) 
 		#master
 		self.btsub2 = Button(window, text = 'Select Master File', command = self.get_file, state = 'disabled')
 		#preview
@@ -52,7 +52,7 @@ class Spiff_match_app:
 		#self.lbl3.pack()
 		#self.lstbox.pack()
 		#self.lbl2.pack()
-		self.btsub.pack()
+		self.btsub.pack(pady=10, padx=2)
 
 
 		self.fname = ''

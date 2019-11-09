@@ -8,7 +8,7 @@ class Mti_spiff(Spiff_report):
 	def transform_eclipse(self, t_dict, key):
 
 		temp = t_dict[key]
-		
+		t_dict['Original_SKU'] = ''
 		for elem in self.r_bucket: temp = temp.replace(elem+' ', '')
 		
 		temp = temp.split(' ')
@@ -20,6 +20,7 @@ class Mti_spiff(Spiff_report):
 		
 		#next it isolates the base
 		t_dict['CatMatch'] = str(targ).split('-')[0]
+		t_dict['Original_SKU'] = str(targ)
 		return
 	def transform_master(self, t_dict, key):
 		#adding series names to object to aid with parsing since the naming conventions are so haphazard
