@@ -8,3 +8,5 @@ texttest.txt
 *.txt
 test_func.py
 spiff_master_loc.json
+*.db
+tax_api.py

@@ -34,7 +34,7 @@ class Spiff_match_app:
 		self.btsub3 = Button(window, text="Select Eclipse File", command = lambda : self.get_file(False))
 		#self.lstbox = Listbox(window)
 		#self.opts = ['MTI', 'Delta', 'Jason', 'Fleurco'] #more to be added
-		self.spiff_select = ttk.Combobox(window, values = ['MTI', 'Delta', 'Jason', 'Fleurco', 'PCP', 'QMDRAIN', 'Crosswater/Ammara', 'Ameste', 'Barclay', 'MTNPLBG'])
+		self.spiff_select = ttk.Combobox(window, values = ['MTI', 'Delta/Brizo', 'Jason', 'Fleurco', 'PCP', 'QMDRAIN', 'Crosswater/Ammara', 'Ameste', 'Barclay', 'MTNPLBG'])
 		self.auto_custom = ttk.Combobox(window, values = ['Auto', 'Custom (Select Master file yourself)'])
 		self.auto_custom.bind("<<ComboboxSelected>>", self.refresh_cust)
 		

@@ -1,4 +1,4 @@
-import csv
+import csv, codecs
 from w_csv import *
 class C_sort(object):#for processing CSVs
     def __init__(self, fname, other = 0):
