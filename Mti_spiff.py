@@ -27,7 +27,7 @@ class Mti_spiff(Spiff_report):
 		#CHECK THIS FIRST IF THERE ARE ANY ISSUES WITH MATCHES
 		#Could definitely mangle 
 		temp = t_dict['Description'].split(' ')[0]
-		if temp: self.r_bucket.add(temp)
+		if temp: self.r_bucket.add(temp.upper())
 		#no transformations required (?)
 		
 		t_dict['CatMatchM'] = t_dict[key]

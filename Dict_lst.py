@@ -1,6 +1,8 @@
 
 import operator, math
+from S_format import *
 from C_sort import *
+from w_csv import *
 
 class Dict_lst:
 	def __init__(self, data= []):
@@ -108,10 +110,17 @@ class Dict_lst:
 			if self.data[i][key] == val: return i
 
 		return -1
-	def export(self, fname):
+	def export(self, c= [], fname = 'report_file.csv' ):
+		data = self.data
 		#needs an export method
 		#doesn't violate immutability (the entire purpose of this object)
-		pass
+		if c: crit = c
+		else: crit = list(data[0].keys())
+		res = [crit]
+		for i in data:
+			res.append(S_format(i).d_sort(crit))
+		w_csv(res, fname)
+		
 
 
 class Duplicate_header(Exception):

@@ -95,6 +95,13 @@ def test_write(data = 'Testing'):
 def exit():
 	sock = connect(host, port)
 	write_msg(sock, 'EXIT')
+def test_tax():
+	sock = connect(host, port)
+	comm = "TAX_RATE 98177 WA"
+	write_msg(sock, comm)
+	res = read_report(sock)
+	return res
+
 
 def read_rep_test(report_com = 'territory CLEISO'):
 	start = time.time()
@@ -117,5 +124,5 @@ def read_rep_test(report_com = 'territory CLEISO'):
 	return res
 
 #b_tst = test()
-
+res = test_tax()
 
