@@ -107,7 +107,7 @@ class Dict_lst:
 		return
 	def search(self, key, val):
 		for i in range(0, len(self.data)):
-			if self.data[i][key] == val: return i
+			if self.data[i][key].strip(' ') == val: return i
 
 		return -1
 	def export(self, c= [], fname = 'report_file.csv' ):

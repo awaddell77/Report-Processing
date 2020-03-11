@@ -16,6 +16,8 @@ class C_sort(object):#for processing CSVs
         return len(self.contents)
     def __getitem__(self, index):
         return self.contents[index]
+    def __add__(self, other):
+        self.contents += other.contents
     def set_delim(self, x):
         self.delimeter = x
     def column(self, n):
@@ -63,6 +65,11 @@ class C_sort(object):#for processing CSVs
         row.sort(reverse=True)
         if row[0]: return False
         return True
+    def empty_cleanse(self):
+        new_contents = []
+        for i in range(0, len(self.contents)):
+            if not self.row_is_empty(i): new_contents.append(self.contents[i])
+        self.contents = new_contents
     def export(self, fname):
         w_csv(self.contents, fname)
     def export_column_as_row(self, column_number, fname = 'columnexport.csv'):

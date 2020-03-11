@@ -8,7 +8,7 @@ class Delta_brizo_spiff(Spiff_report):
 		#acceptable = ['DELTAUV', 'DELTA', 'BRIZO']
 		temp = t_dict[key].split(' ')
 		if len(temp) == 1: t_dict["CatMatch"] = temp[0]
-		t_dict["CatMatch"] = temp[1]
+		else: t_dict["CatMatch"] = temp[1]
 		#else: t_dict["CatMatch"] = temp[0]
 		return
 	def transform_master(self, t_dict, key):

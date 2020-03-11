@@ -1,4 +1,5 @@
 from Spiff_report2 import *
+from t_funcs import remove_unicode
 
 class Crosswater_ammara_spiff(Spiff_report):
 	def __init__(self, spiff_name, fname_eclipse, fname_master):
@@ -11,7 +12,7 @@ class Crosswater_ammara_spiff(Spiff_report):
 		return
 	def transform_master(self, t_dict, key):
 		temp = t_dict[key]
-		t_dict['CatMatchM'] = temp
+		t_dict['CatMatchM'] = remove_unicode(temp).strip(' ')
 		return
 	def cust_clean(self):
 		#
