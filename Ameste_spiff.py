@@ -10,6 +10,7 @@ class Ameste_spiff(Spiff_report):
 		if len(temp) == 1: 
 			t_dict['CatMatch'] = temp[0]
 			return
+		
 		#may need to add more filtering in the future
 		#however right now it seems like most products in this line have a uniform style
 		t_dict['CatMatch'] = temp[1]

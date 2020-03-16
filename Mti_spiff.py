@@ -16,9 +16,11 @@ class Mti_spiff(Spiff_report):
 		if temp[0] != 'MTI': targ = temp[0]
 		#required because this company allows salesmen to create the products and so a lot of dumb arbitrary crap gets added like "*CUSTOM*" just before the cat# in the description
 		elif '*' in temp[1]: targ = temp[2]
+
 		else: targ = temp[1]
 		
 		#next it isolates the base
+		if 'MTCS-' in str(targ):
 		t_dict['CatMatch'] = str(targ).split('-')[0]
 		t_dict['Original_SKU'] = str(targ)
 		return

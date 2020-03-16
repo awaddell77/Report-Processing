@@ -10,3 +10,6 @@ test_func.py
 spiff_master_loc.json
 *.db
 tax_api.py
+chromedriver.exe
+Mitel_holiday.py
+mitel process
